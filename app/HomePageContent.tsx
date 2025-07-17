@@ -139,7 +139,6 @@ export default function HomePage() {
                   <div className="relative">
                     <Input
                       type={showPassword ? "text" : "password"}
-                      placeholder="Nhập mật khẩu..."
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       onKeyPress={(e) => e.key === "Enter" && handleLogin()}
