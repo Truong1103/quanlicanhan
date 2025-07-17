@@ -126,7 +126,7 @@ export default function HomePage() {
                   >
                     <Lock className="w-16 h-16 text-purple-300" />
                   </motion.div>
-                  <h1 className="text-3xl font-bold text-white mb-2">Quản Lý Tài Chính</h1>
+                  <h1 className="text-3xl font-bold text-white mb-2">Hi, Trường Nguyễn</h1>
                   <p className="text-purple-200">Vui lòng nhập mật khẩu để tiếp tục</p>
                 </motion.div>
 
