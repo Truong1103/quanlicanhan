@@ -457,11 +457,21 @@ export default function FinanceManager({ onLogout, userPassword }: FinanceManage
                               </td>
                               <td className="p-3">
                                 <Input
-                                  type="number"
-                                  value={entry.amount || ""}
-                                  onChange={(e) =>
-                                    updateEntry(entry.id, "amount", Number.parseFloat(e.target.value) || 0)
+                                  type="text"
+                                  value={
+                                    entry.amount
+                                      ? entry.amount.toLocaleString("vi-VN")
+                                      : ""
                                   }
+                                  onChange={e => {
+                                    let raw = e.target.value.replace(/\D/g, ""); // chỉ lấy số
+                                    let num = Number(raw);
+                                    if (raw.length === 2) num = num * 1000;
+                                    else if (raw.length === 3) num = num * 1000;
+                                    else if (raw.length === 4) num = num * 1000;
+                                    // Nếu nhập 1 số hoặc nhiều hơn 4 số thì giữ nguyên
+                                    updateEntry(entry.id, "amount", num || 0);
+                                  }}
                                   className="bg-white border-gray-300 text-gray-800 focus:border-blue-500"
                                   placeholder="0"
                                 />
