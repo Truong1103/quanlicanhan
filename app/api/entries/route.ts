@@ -1,9 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 
 // POST - Tạo entry mới
 export async function POST(request: NextRequest) {
   try {
+    const supabase = getSupabase();
     const body = await request.json()
     const { sheet_id, date, overview, amount, work } = body
 
@@ -33,6 +34,7 @@ export async function POST(request: NextRequest) {
 // PUT - Cập nhật entry
 export async function PUT(request: NextRequest) {
   try {
+    const supabase = getSupabase();
     const body = await request.json()
     const { id, overview, amount, work } = body
 

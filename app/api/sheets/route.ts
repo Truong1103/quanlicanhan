@@ -1,9 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 
 // GET - Lấy tất cả sheets của user
 export async function GET(request: NextRequest) {
   try {
+    const supabase = getSupabase();
     const { searchParams } = new URL(request.url)
     const password = searchParams.get("password")
 
@@ -50,6 +51,7 @@ export async function GET(request: NextRequest) {
 // POST - Tạo sheet mới
 export async function POST(request: NextRequest) {
   try {
+    const supabase = getSupabase();
     const body = await request.json()
     const { password, name, month, year, entries } = body
 
