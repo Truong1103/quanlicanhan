@@ -19,7 +19,7 @@ interface FinanceEntry {
   work: string
 }
 
-interface FinanceSheet {
+interface FinanceSheet {zzz
   id: string
   name: string
   month: string
