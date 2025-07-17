@@ -1,6 +1,6 @@
 "use client"
 
-import dynamic from "next/dynamic";
+import dynamicImport from "next/dynamic";
 export const dynamic = "force-dynamic";
-const HomePage = dynamic(() => import("./HomePageContent"), { ssr: false });
+const HomePage = dynamicImport(() => import("./HomePageContent"), { ssr: false });
 export default function Page() { return <HomePage /> }
