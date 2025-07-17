@@ -1,9 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 
 // DELETE - Xóa entry
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
+    const supabase = getSupabase();
     const { error } = await supabase.from("finance_entries").delete().eq("id", params.id)
 
     if (error) {

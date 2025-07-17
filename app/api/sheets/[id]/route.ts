@@ -1,9 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 
 // DELETE - Xóa sheet
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
+    const supabase = getSupabase();
     const { searchParams } = new URL(request.url)
     const password = searchParams.get("password")
 
